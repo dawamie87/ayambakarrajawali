@@ -3,451 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franchise Ayam Bakar Rajawali - Peluang Bisnis Menguntungkan</title>
+    <title>Franchise Ayam Bakar Rajawali - Warisan Rasa Sejak 1985</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Peluang Investasi Kuliner Legendaris Palembang. Ayam Bakar Rajawali, teruji sejak 1985. Omset ratusan juta, sistem support lengkap.">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Babel (untuk JSX) -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!-- Font Inter (Satu-satunya font yang digunakan) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Konfigurasi Tailwind & Style Tambahan -->
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Inter', 'sans-serif'], // Menggunakan Inter juga untuk heading
-                    },
-                    colors: {
-                        primary: '#FFC107', // Kuning Emas
-                        secondary: '#D32F2F', // Merah Berani
-                        dark: '#111827',
-                    },
-                    boxShadow: {
-                        'glow': '0 0 20px rgba(255, 193, 7, 0.5)',
-                        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'bounce-slow': 'bounce 2s infinite',
-                    }
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ['Plus Jakarta Sans', 'sans-serif'],
+                heading: ['Oswald', 'sans-serif'],
+              },
+              colors: {
+                // Palet Warna ABR Modern (Red & Orange/Yellow)
+                red: {
+                  50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#fca5a5', 400: '#f87171', 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c', 800: '#991b1b', 900: '#7f1d1d',
+                },
+                yellow: {
+                   400: '#facc15', 500: '#eab308', 600: '#ca8a04' 
                 }
+              },
+              animation: {
+                 'float': 'float 6s ease-in-out infinite',
+                 'float-delayed': 'float 6s ease-in-out 3s infinite',
+                 'pulse-glow': 'pulse-glow 2s infinite',
+                 'shimmer': 'shimmer 1s infinite',
+                 'bounce-slow': 'bounce 3s infinite',
+                 'marquee': 'marquee 30s linear infinite',
+              },
+              keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                'pulse-glow': {
+                    '0%': { boxShadow: '0 0 0 0 rgba(220, 38, 38, 0.7)' },
+                    '70%': { boxShadow: '0 0 0 15px rgba(220, 38, 38, 0)' },
+                    '100%': { boxShadow: '0 0 0 0 rgba(220, 38, 38, 0)' },
+                },
+                shimmer: {
+                    '100%': { transform: 'skewX(-12deg) translateX(100%)' }
+                },
+                marquee: {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-50%)' }
+                }
+              }
             }
+          }
         }
     </script>
     
-    <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #E5E7EB; /* Background luar abu-abu */
-            background-image: radial-gradient(#D1D5DB 1px, transparent 1px);
-            background-size: 20px 20px;
-        } 
-        
-        /* Hide scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D32F2F;
-            border-radius: 4px;
-        }
+    <!-- Fonts & Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 
-        .clip-zig-zag {
-            clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 50% 100%, 0% 95%);
+    <style>
+        /* Base Overrides */
+        html, body { 
+            overflow-x: hidden; 
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #b91c1c; }
+
+        /* Mockup Styles */
+        .mockup-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
-<body>
-    <div id="root"></div>
 
-    <!-- Import Map -->
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@18.2.0",
-        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-        "lucide-react": "https://esm.sh/lucide-react@0.263.1"
-      }
-    }
-    </script>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased">
 
-    <!-- Script Aplikasi React -->
-    <script type="text/babel" data-type="module">
-        import React, { useState, useEffect } from 'react';
-        import { createRoot } from 'react-dom/client';
-        import { 
-            Phone, CheckCircle, TrendingUp, Users, Award, MapPin, 
-            Printer, ChevronRight, Calculator, Star, Layout, Target, 
-            Instagram, Facebook, Globe, Utensils, Bike, ShoppingBag, 
-            MessageCircle, Video, ArrowRight, Building2, ChefHat, 
-            Camera, Briefcase, MousePointer2, Mail, Clock, ShieldCheck, Zap
-        } from 'lucide-react';
-
-        // DEFINISI KOMPONEN ArchiveBox YANG SEBELUMNYA HILANG
-        const ArchiveBox = (props) => (
-            <svg 
-                {...props}
-                xmlns="http://www.w3.org/2000/svg" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-            >
-                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
-                <path d="m3.3 7 8.7 5 8.7-5"/>
-                <path d="M12 22V12"/>
-            </svg>
-        );
-
-        const App = () => {
-            const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-            // Countdown Timer Logic (untuk efek urgensi sales page)
-            useEffect(() => {
-                const targetDate = new Date();
-                targetDate.setDate(targetDate.getDate() + 2); // 2 hari dari sekarang
-
-                const interval = setInterval(() => {
-                    const now = new Date();
-                    const difference = targetDate - now;
-
-                    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                    const minutes = Math.floor((difference / 1000 / 60) % 60);
-                    const seconds = Math.floor((difference / 1000) % 60);
-
-                    setTimeLeft({ days, hours, minutes, seconds });
-                }, 1000);
-
-                return () => clearInterval(interval);
-            }, []);
-
-            const handlePrint = () => {
-                window.print();
-            };
-
-            // Data Client
-            const clients = [
-                "Bank Sumsel Babel", "Kementerian Keuangan", "Aston Palembang", "Indomarco", 
-                "Bank BTN", "Bank Mandiri", "RS Bunda", "RS Muhammadiyah", 
-                "Bening's Clinic", "RSUP Dr. M. Hoesin", "Hotel Duta", "Charitas Hospital", 
-                "JNE Express", "Maybank", "Favehotel", "Grand Inna", 
-                "Peteka Karya Samudera", "Jakabaring Sport City", "Classie Hotel", "PDAM Tirta Dharma", 
-                "Prodia", "RS Ernaldi Bahar", "RSK Gigi & Mulut", "BNN", 
-                "RS Hermina", "Bank Mega", "Indofarma", "Ulam Jelis", 
-                "Lion Parcel", "Bank BRI", "Pertamina Gas", "PLN"
-            ];
-
-            // Data Menu (Dipilih yang terbaik untuk sales page agar tidak terlalu panjang)
-            const topMenu = [
-                { name: "Ayam Bakar", category: "Best Seller", img: "🍗" },
-                { name: "Ayam Geprek", category: "Pedas", img: "🔥" },
-                { name: "Nila Bakar", category: "Seafood", img: "🐟" },
-                { name: "Pindang Patin", category: "Khas", img: "🍲" },
-                { name: "Bakso Kuah", category: "Segar", img: "🍜" },
-                { name: "Es Campur", category: "Dessert", img: "🍧" }
-            ];
-
-            return (
-                <div className="min-h-screen relative font-sans text-gray-900 mx-auto max-w-[600px] bg-white shadow-2xl overflow-hidden border-x border-gray-200">
-                    
-                    {/* Sticky Header Simple */}
-                    <div className="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-gray-100 py-3 px-4 flex justify-between items-center">
-                        <div className="flex items-center gap-2">
-                            <div className="bg-primary w-8 h-8 rounded-lg flex items-center justify-center">
-                                <ChefHat size={18} className="text-secondary" />
-                            </div>
-                            <span className="font-heading font-bold text-gray-900 leading-tight">RAJAWALI<br/><span className="text-[10px] text-red-600 tracking-widest font-sans">FRANCHISE</span></span>
-                        </div>
-                        <a href="#investasi" className="bg-secondary text-white text-xs font-bold px-4 py-2 rounded-full hover:bg-red-800 transition-colors animate-pulse-slow">
-                            Info Kemitraan
-                        </a>
-                    </div>
-
-                    {/* HERO SECTION: Hard Hitting Sales Copy */}
-                    <header className="relative bg-secondary text-white pt-10 pb-16 px-6 text-center clip-zig-zag overflow-hidden">
-                        {/* Background Patterns */}
-                        <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-yellow-400 rounded-full blur-3xl opacity-30"></div>
-                        
-                        <div className="relative z-10">
-                            <div className="inline-block bg-yellow-400 text-red-900 font-bold px-3 py-1 rounded-sm text-xs mb-4 uppercase tracking-wider transform -rotate-1">
-                                Peluang Bisnis Kuliner Legendaris
-                            </div>
-                            <h1 className="font-heading text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
-                                INGIN PUNYA BISNIS KULINER <span className="text-yellow-400 underline decoration-white decoration-2">ANTI GAGAL?</span>
-                            </h1>
-                            <p className="text-red-100 text-base mb-8 font-medium leading-relaxed">
-                                Bergabunglah dengan Ayam Bakar Rajawali. Warisan rasa sejak 1985, sistem teruji, dan potensi profit ratusan juta!
-                            </p>
-
-                            {/* Hero Image / Video Placeholder */}
-                            <div className="bg-white p-2 rounded-xl shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-300 mb-8">
-                                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden relative flex items-center justify-center border border-gray-200">
-                                    <div className="text-center">
-                                        <ChefHat size={48} className="text-gray-300 mx-auto mb-2" />
-                                        <span className="text-gray-400 text-sm font-bold block">[VIDEO/FOTO HERO]</span>
-                                        <span className="text-xs text-gray-400">Tampilkan Ayam Bakar Menggoda</span>
-                                    </div>
-                                    {/* Play Button Overlay */}
-                                    <div className="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/0 transition-colors cursor-pointer">
-                                        <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg animate-bounce-slow">
-                                            <div className="w-0 h-0 border-t-8 border-t-transparent border-l-[12px] border-l-white border-b-8 border-b-transparent ml-1"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-3 gap-2 text-xs font-bold text-white/90">
-                                <div className="bg-red-800/50 p-2 rounded-lg border border-red-700">
-                                    <span className="block text-xl text-yellow-400 mb-1">35+</span>
-                                    Tahun<br/>Pengalaman
-                                </div>
-                                <div className="bg-red-800/50 p-2 rounded-lg border border-red-700">
-                                    <span className="block text-xl text-yellow-400 mb-1">5K+</span>
-                                    Box<br/>Terjual/Hari
-                                </div>
-                                <div className="bg-red-800/50 p-2 rounded-lg border border-red-700">
-                                    <span className="block text-xl text-yellow-400 mb-1">4</span>
-                                    Outlet<br/>Resmi
-                                </div>
-                            </div>
-                        </div>
-                    </header>
-
-                    {/* STORY / PROBLEM AWARENESS */}
-                    <section className="py-12 px-6 bg-white">
-                        <h2 className="font-heading text-2xl font-bold text-gray-900 mb-4 text-center">
-                            Bukan Sekedar Jualan Ayam Bakar
-                        </h2>
-                        <div className="w-16 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
-                        
-                        <div className="prose prose-sm text-gray-600 leading-relaxed mx-auto text-justify">
-                            <p className="mb-4">
-                                <strong>Banyak orang ingin bisnis kuliner, tapi takut gagal.</strong> Takut rasa tidak konsisten, takut manajemen berantakan, atau takut tidak laku.
-                            </p>
-                            <p className="mb-4 bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 text-gray-800 font-medium">
-                                "Kami pun pernah jatuh bangun. Kebakaran 2015 & 2019, dihantam pandemi... Tapi kami BANGKIT."
-                            </p>
-                            <p>
-                                Sejak 1985, dari gerobak pikul hingga menjadi restoran permanen. Di bawah manajemen <strong>Mas Supri</strong>, Ayam Bakar Rajawali bertransformasi menjadi bisnis modern dengan sistem yang solid, siap diduplikasi untuk kesuksesan Anda.
-                            </p>
-                        </div>
-                    </section>
-
-                    {/* WHY US (Grid Cards) */}
-                    <section className="py-12 px-6 bg-gray-50">
-                        <div className="text-center mb-8">
-                            <span className="text-secondary font-bold text-xs uppercase tracking-wider">Keunggulan Mutlak</span>
-                            <h2 className="font-heading text-2xl font-bold text-gray-900">Kenapa Harus Kami?</h2>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4">
-                            {[
-                                { title: "Rasa Legendaris", icon: Star, desc: "Resep rahasia 35 tahun." },
-                                { title: "Raja Nasi Box", icon: ArchiveBox, desc: "Langganan ribuan instansi." },
-                                { title: "Sistem Autopilot", icon: Zap, desc: "Manajemen tertata rapi." },
-                                { title: "Full Support", icon: Users, desc: "Bimbingan seumur hidup." },
-                                { title: "Gratis Ongkir", icon: Bike, desc: "Value lebih untuk customer." },
-                                { title: "Ladang Pahala", icon: Award, desc: "Visi dakwah & sosial." },
-                            ].map((item, i) => (
-                                <div key={i} className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center hover:border-primary transition-colors">
-                                    <div className="w-10 h-10 mx-auto bg-red-50 text-secondary rounded-full flex items-center justify-center mb-3">
-                                        <item.icon size={20} />
-                                    </div>
-                                    <h3 className="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
-                                    <p className="text-xs text-gray-500">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* MENU HIGHLIGHT (List Style) */}
-                    <section className="py-12 px-6 bg-white">
-                        <h2 className="font-heading text-2xl font-bold text-gray-900 mb-6 text-center">Menu Favorit Pelanggan</h2>
-                        <div className="space-y-3">
-                            {topMenu.map((menu, i) => (
-                                <div key={i} className="flex items-center gap-4 p-3 rounded-lg border border-gray-100 hover:shadow-md transition-shadow bg-white">
-                                    <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center text-2xl shrink-0">
-                                        {menu.img}
-                                    </div>
-                                    <div className="flex-1">
-                                        <h4 className="font-bold text-gray-900">{menu.name}</h4>
-                                        <span className="text-xs font-semibold text-secondary bg-red-50 px-2 py-0.5 rounded-full">{menu.category}</span>
-                                    </div>
-                                    <div className="text-gray-300">
-                                        <ChevronRight size={20} />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="mt-6 text-center">
-                            <button className="text-sm font-bold text-secondary border-b-2 border-secondary pb-0.5 hover:text-red-800">Lihat Menu Selengkapnya</button>
-                        </div>
-                    </section>
-
-                    {/* PARTNERS (Marquee-like Grid) */}
-                    <section className="py-12 px-6 bg-gray-900 text-white text-center">
-                        <h2 className="font-heading text-xl font-bold mb-2 text-primary">Dipercaya Instansi Besar</h2>
-                        <p className="text-gray-400 text-xs mb-8">Menjadi pilihan utama konsumsi rapat & acara.</p>
-                        
-                        <div className="flex flex-wrap justify-center gap-2">
-                            {clients.slice(0, 15).map((client, idx) => ( // Show less for cleaner mobile look
-                                <span key={idx} className="bg-gray-800 text-gray-300 text-[10px] font-medium px-3 py-1.5 rounded-full border border-gray-700">
-                                    {client}
-                                </span>
-                            ))}
-                            <span className="text-gray-500 text-[10px] px-2 py-1.5">+ Dan Banyak Lagi</span>
-                        </div>
-                    </section>
-
-                    {/* INVESTMENT OFFER ( The "Meat" of Sales Page) */}
-                    <section id="investasi" className="py-12 px-6 bg-gradient-to-b from-white to-red-50">
-                        <div className="bg-white rounded-2xl shadow-card overflow-hidden border-2 border-primary relative">
-                            {/* Best Value Badge */}
-                            <div className="absolute top-0 right-0 bg-primary text-red-900 text-[10px] font-black px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                                Recommended
-                            </div>
-
-                            <div className="p-6 text-center bg-red-600 text-white bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
-                                <h3 className="font-bold text-sm uppercase tracking-widest text-red-200 mb-1">Paket Franchise</h3>
-                                <div className="font-heading font-black text-4xl mb-2 text-white drop-shadow-md">
-                                    Rp 750 Juta
-                                </div>
-                                <p className="text-xs text-white/80 font-medium">All In One • Siap Jualan</p>
-                            </div>
-
-                            <div className="p-6">
-                                <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
-                                    <div className="text-center w-1/2 border-r border-gray-100">
-                                        <span className="block text-xs text-gray-500 font-bold uppercase">Estimasi BEP</span>
-                                        <span className="block text-xl font-black text-green-600">30 Bulan</span>
-                                    </div>
-                                    <div className="text-center w-1/2">
-                                        <span className="block text-xs text-gray-500 font-bold uppercase">Masa Lisensi</span>
-                                        <span className="block text-xl font-black text-gray-900">6 Tahun</span>
-                                    </div>
-                                </div>
-
-                                <ul className="space-y-3 mb-8">
-                                    {[
-                                        "Renovasi Interior & Eksterior (Full)",
-                                        "Peralatan Dapur & Dining Lengkap",
-                                        "Sistem POS & Software Kasir",
-                                        "Rekrutmen & Training Karyawan",
-                                        "Bahan Baku Awal Lengkap",
-                                        "Marketing Grand Opening (Neon Box, dll)",
-                                        "Pendampingan Manajemen Pusat"
-                                    ].map((feat, i) => (
-                                        <li key={i} className="flex gap-3 text-sm text-gray-700">
-                                            <CheckCircle size={18} className="text-green-500 shrink-0" />
-                                            {feat}
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                {/* Profit Sim */}
-                                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200 mb-6">
-                                    <h4 className="font-bold text-center text-gray-900 text-sm mb-3">Simulasi Profit / Bulan</h4>
-                                    <div className="flex justify-between text-xs text-gray-600 mb-1">
-                                        <span>Estimasi Omset</span>
-                                        <span className="font-bold">Rp 250.000.000</span>
-                                    </div>
-                                    <div className="w-full bg-gray-200 rounded-full h-1.5 mb-3">
-                                        <div className="bg-green-500 h-1.5 rounded-full" style={{ width: '100%' }}></div>
-                                    </div>
-                                    
-                                    <div className="flex justify-between items-end">
-                                        <span className="text-xs font-bold text-gray-500 uppercase">Profit Bersih Investor</span>
-                                        <span className="font-heading font-black text-xl text-secondary">Rp 25.000.000</span>
-                                    </div>
-                                    <p className="text-[10px] text-gray-400 mt-2 text-center italic">*Berdasarkan performa rata-rata outlet</p>
-                                </div>
-
-                                <a href="https://wa.me/6282110178222" className="block w-full bg-green-500 hover:bg-green-600 text-white font-bold text-center py-4 rounded-xl shadow-lg shadow-green-500/30 transition-all transform hover:-translate-y-1 animate-pulse-slow">
-                                    <span className="flex items-center justify-center gap-2">
-                                        <MessageCircle size={20} />
-                                        Ambil Peluang Ini Sekarang
-                                    </span>
-                                </a>
-                                <p className="text-center text-[10px] text-gray-400 mt-3">
-                                    Slot mitra terbatas untuk menjaga kualitas manajemen.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* FAQ / Closing */}
-                    <section className="py-12 px-6 bg-white text-center">
-                        <h2 className="font-heading text-xl font-bold mb-4">Masih Ragu? Konsultasi Dulu Yuk!</h2>
-                        <p className="text-sm text-gray-600 mb-6">
-                            Tim kami siap menjelaskan detail bisnis plan dan menjawab keraguan Anda. Gratis konsultasi.
-                        </p>
-                        <div className="inline-block p-1 rounded-full bg-gray-100 mb-8">
-                            <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm">
-                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                <span className="text-xs font-bold text-gray-600">Admin Online Sekarang</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* FOOTER SIMPLE */}
-                    <footer className="bg-dark text-white py-8 px-6 text-center border-t-4 border-primary">
-                        <div className="mb-6 flex justify-center">
-                            <div className="bg-white p-2 rounded-lg">
-                                <ChefHat size={32} className="text-secondary" />
-                            </div>
-                        </div>
-                        <p className="text-gray-400 text-xs mb-4 max-w-xs mx-auto">
-                            Jl. Gubernur H. A Bastari, Jakabaring (Depan OPI Mall), Palembang
-                        </p>
-                        <p className="text-white font-bold text-lg mb-6">0821-1017-8222</p>
-                        
-                        <div className="flex justify-center gap-4 mb-8">
-                            <div className="bg-gray-800 p-2 rounded-full"><Instagram size={18} /></div>
-                            <div className="bg-gray-800 p-2 rounded-full"><Facebook size={18} /></div>
-                            <div className="bg-gray-800 p-2 rounded-full"><Globe size={18} /></div>
-                        </div>
-
-                        <p className="text-gray-600 text-[10px]">
-                            &copy; 2024 Ayam Bakar Rajawali. All Rights Reserved.<br/>
-                            Designed for Success.
-                        </p>
-                    </footer>
-
-                    {/* Sticky Bottom CTA (Mobile Style) */}
-                    <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4 shadow-[0_-5px_20px_rgba(0,0,0,0.1)] flex items-center justify-between z-50">
-                        <div className="flex flex-col">
-                            <span className="text-[10px] text-gray-500 font-bold uppercase">Investasi Mulai</span>
-                            <span className="text-lg font-black text-secondary">750 Juta</span>
-                        </div>
-                        <a href="https://wa.me/6282110178222" className="bg-primary hover:bg-yellow-400 text-red-900 font-bold py-2.5 px-6 rounded-lg text-sm shadow-md flex items-center gap-2 transition-colors">
-                            <MessageCircle size={18} />
-                            Chat Owner
-                        </a>
-                    </div>
-
+    <!-- Navbar Floating -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] w-[90%] max-w-5xl">
+        <div class="bg-white/80 backdrop-blur-md border border-white/50 rounded-full px-6 py-3 shadow-lg flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white font-heading font-bold border-2 border-yellow-400 shadow-md">
+                    ABR
                 </div>
-            );
-        };
+                <span class="font-heading font-bold text-slate-900 tracking-tight leading-none hidden sm:block">
+                    AYAM BAKAR<br><span class="text-red-600">RAJAWALI</span>
+                </span>
+            </div>
+            
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-slate-600">
+                <a href="#keunggulan" class="hover:text-red-600 transition-colors">Keunggulan</a>
+                <a href="#menu" class="hover:text-red-600 transition-colors">Menu</a>
+                <a href="#investasi" class="hover:text-red-600 transition-colors">Investasi</a>
+                <a href="#lokasi" class="hover:text-red-600 transition-colors">Lokasi</a>
+            </div>
 
-        const root = createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+            <a href="https://wa.me/6282110178222?text=Halo%20Admin%20ABR,%20saya%20tertarik%20info%20Franchise" class="bg-gradient-to-r from-red-600 to-orange-500 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all hover:-translate-y-0.5">
+                <i class="fa-brands fa-whatsapp mr-1"></i> Gabung Mitra
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-orange-50/80 to-white -z-20"></div>
+        <div class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-red-200/40 rounded-full blur-[100px] -z-10 animate-float"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-yellow-200/40 rounded-full blur-[80px] -z-10 animate-float-delayed"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                
+                <!-- Text Content -->
+                <div class="text-center lg:text-left space-y-6 order-2 lg:order-1 relative z-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50 text-red-700 text-xs font-bold uppercase tracking-wider border border-red-100 shadow-sm animate-bounce-slow">
+                        <i class="fa-solid fa-fire text-orange-500"></i> Best Choice Investment
+                    </div>
+                    
+                    <h1 class="text-4xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
+                        Warisan Rasa Legendaris <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-500">Sejak Tahun 1985.</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                        Bukan sekadar bisnis ayam bakar, tapi peluang menjadi bagian dari sejarah kuliner Palembang. 
+                        <strong>Omset stabil, sistem teruji, dan produk yang dicintai ribuan pelanggan.</strong>
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#investasi" class="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-2xl font-bold text-lg hover:from-red-700 hover:to-orange-700 transition-all shadow-xl shadow-red-500/30 hover:shadow-red-500/50 animate-pulse-glow flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-chart-line"></i> Lihat Proyeksi Profit
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=dummy" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold text-lg hover:bg-slate-50 hover:border-red-200 transition-all flex items-center justify-center gap-2 group">
+                            <i class="fa-solid fa-play text-red-500 group-hover:scale-110 transition-transform"></i> Tonton Profil
+                        </a>
+                    </div>
+                    
+                    <div class="pt-6 flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-slate-500 font-semibold">
+                        <span class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm border border-slate-100"><i class="fa-solid fa-check-circle text-green-500"></i> Teruji Anti Krisis</span>
+                        <span class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm border border-slate-100"><i class="fa-solid fa-check-circle text-green-500"></i> 4 Outlet Besar</span>
+                        <span class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm border border-slate-100"><i class="fa-solid fa-star text-yellow-400"></i> Rating Tinggi (Grab/Gojek)</span>
+                    </div>
+                </div>
+
+                <!-- Visual Content (Floating Cards) -->
+                <div class="relative mx-auto lg:mr-0 w-full max-w-[500px] order-1 lg:order-2">
+                    <!-- Main Image Frame -->
+                    <div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl shadow-red-900/20 border-8 border-white animate-float">
+                        <img src="https://placehold.co/600x700/800000/FFF?text=Ayam+Bakar+Rajawali+Premium" alt="Ayam Bakar Rajawali" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Floating Badge 1: Award -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-4 animate-float-delayed">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-xl flex-shrink-0">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase">Penghargaan</p>
+                                <p class="text-sm font-bold text-slate-800 leading-tight">Juara 1 Grab Merchant Awards 2021</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge 2: Years -->
+                    <div class="absolute -top-6 -right-6 bg-yellow-400 text-red-900 p-6 rounded-3xl shadow-xl shadow-yellow-400/30 animate-bounce-slow z-20">
+                        <p class="text-4xl font-heading font-bold text-center leading-none">35+</p>
+                        <p class="text-xs font-bold uppercase tracking-wider text-center mt-1">Tahun<br>Pengalaman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGO MARQUEE (Modern Style) -->
+    <section class="py-10 bg-white border-y border-slate-100 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white z-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 mb-6 text-center">
+            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Dipercaya Oleh 100+ Instansi Besar</p>
+        </div>
+        <div class="flex overflow-hidden space-x-16 group">
+            <div class="flex space-x-16 animate-marquee">
+                <!-- Logos Placeholder with Text Styles -->
+                <span class="text-2xl font-bold text-slate-300 font-heading">PERTAMINA</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">BCA</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">MANDIRI</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">PLN</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">TELKOMSEL</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">GRAB</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">SHOPEE</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">BRI</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">BNI</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">PUSRI</span>
+                <!-- Duplicate for Loop -->
+                <span class="text-2xl font-bold text-slate-300 font-heading">PERTAMINA</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">BCA</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">MANDIRI</span>
+                <span class="text-2xl font-bold text-slate-300 font-heading">PLN</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US (Grid Modern) -->
+    <section id="keunggulan" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <h2 class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">Kenapa ABR?</h2>
+                <h3 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">Investasi Aman, Profit Menawan</h3>
+                <p class="text-slate-600">Kami membangun sistem yang memudahkan mitra untuk tumbuh bersama tanpa harus pusing memikirkan operasional dari nol.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative bg-white p-8 rounded-[2rem] border border-slate-100 hover:border-red-200 shadow-sm hover:shadow-2xl hover:shadow-red-100/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -z-10 group-hover:bg-red-100 transition-colors"></div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl shadow-lg shadow-red-200/50 flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-slate-800 mb-3">Produk Juara</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed font-medium">Cita rasa khas yang tidak dimiliki kompetitor lain. Ayam bakar, geprek, dan kremes yang bikin nagih.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative bg-white p-8 rounded-[2rem] border border-slate-100 hover:border-red-200 shadow-sm hover:shadow-2xl hover:shadow-red-100/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-full -z-10 group-hover:bg-orange-100 transition-colors"></div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-2xl shadow-lg shadow-orange-200/50 flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-slate-800 mb-3">Rajanya Nasi Box</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed font-medium">Kapasitas produksi hingga <strong>5.000 box/hari</strong>. Langganan tetap instansi pemerintah & swasta.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative bg-white p-8 rounded-[2rem] border border-slate-100 hover:border-red-200 shadow-sm hover:shadow-2xl hover:shadow-red-100/50 transition-all duration-300">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -z-10 group-hover:bg-red-100 transition-colors"></div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl shadow-lg shadow-red-200/50 flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-transform">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-slate-800 mb-3">Digital Marketing</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed font-medium">Rating tinggi di GrabFood, GoFood & ShopeeFood. Brand Awareness kuat di media sosial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SHOWCASE (Dark Mode aesthetics) -->
+    <section id="menu" class="py-24 bg-slate-900 text-white overflow-hidden relative">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ef4444 1.5px, transparent 1.5px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">Menu Andalan<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">Penyedot Omset</span></h3>
+                    <p class="text-slate-300 mb-8 leading-relaxed text-lg">
+                        Menu kami dirancang untuk semua kalangan. Dari Ayam Bakar yang manis gurih meresap hingga tulang, sampai sambal geprek yang pedas nendang.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <!-- Item Menu -->
+                        <div class="flex items-center gap-4 group cursor-pointer">
+                            <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-slate-700 group-hover:border-red-500 transition-colors">
+                                <img src="https://placehold.co/100x100/333/FFF?text=Ayam" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-white group-hover:text-red-400 transition-colors">Ayam Bakar Rajawali</h5>
+                                <p class="text-slate-400 text-sm">Best seller sejak 1985. Bumbu rahasia keluarga.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group cursor-pointer">
+                            <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-slate-700 group-hover:border-red-500 transition-colors">
+                                <img src="https://placehold.co/100x100/333/FFF?text=Nila" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-white group-hover:text-red-400 transition-colors">Nila Bakar & Goreng</h5>
+                                <p class="text-slate-400 text-sm">Segar, garing, dan tidak bau tanah.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group cursor-pointer">
+                            <div class="w-16 h-16 rounded-2xl overflow-hidden border-2 border-slate-700 group-hover:border-red-500 transition-colors">
+                                <img src="https://placehold.co/100x100/333/FFF?text=Es" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg text-white group-hover:text-red-400 transition-colors">Es Kacang Merah & Jus</h5>
+                                <p class="text-slate-400 text-sm">Penyegar dahaga khas Palembang.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-red-600 to-orange-600 rounded-[2.5rem] blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse-glow"></div>
+                    <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-700">
+                        <img src="https://placehold.co/600x600/500/FFF?text=Foto+Menu+HD" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-8">
+                            <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase mb-2 inline-block">Customer Favorite</span>
+                            <p class="text-white font-heading font-bold text-2xl">Paket Nasi Ayam Bakar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INVESTMENT / PRICING SECTION -->
+    <section id="investasi" class="py-24 bg-gradient-to-b from-white to-red-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[50%] h-[50%] bg-orange-100 rounded-full blur-[120px] -z-10 opacity-60"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">Paket Kemitraan</h2>
+                <p class="mt-4 text-slate-600 text-lg max-w-2xl mx-auto">Satu harga, terima beres. Tanpa biaya tersembunyi. Outlet siap beroperasi.</p>
+            </div>
+
+            <div class="bg-white rounded-[3rem] shadow-2xl shadow-red-200/40 overflow-hidden border border-slate-100 relative transform transition-all hover:scale-[1.005] ring-1 ring-slate-100/50">
+                <!-- Banner Promo -->
+                <div class="absolute top-0 right-0 z-20">
+                     <div class="bg-gradient-to-bl from-red-600 to-orange-500 text-white text-xs font-bold px-8 py-3 rounded-bl-3xl uppercase tracking-wider shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-key"></i> All-In Package
+                     </div>
+                </div>
+                
+                <div class="p-8 md:p-14 grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Pricing & ROI -->
+                    <div>
+                        <div class="inline-block bg-green-100 text-green-700 px-4 py-1 rounded-full text-xs font-bold mb-4">
+                            <i class="fa-solid fa-clock-rotate-left"></i> BEP Estimasi: 27 Bulan
+                        </div>
+                        <div class="flex items-start gap-2">
+                             <span class="text-2xl font-bold text-slate-400 mt-2">Rp</span>
+                             <h3 class="text-7xl font-extrabold text-slate-900 mb-2 tracking-tight leading-none">500<span class="text-4xl text-slate-500">Jt</span></h3>
+                        </div>
+                        <p class="text-slate-500 text-sm mb-8 font-medium">Investasi Awal Lengkap (Full Furnished)</p>
+                        
+                        <div class="mb-8 bg-slate-50 p-6 rounded-3xl border border-slate-100 space-y-4">
+                            <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-2">Simulasi Profit Bulanan</h4>
+                            <div class="flex justify-between text-sm text-slate-600">
+                                <span>Omset Rata-rata</span>
+                                <span class="font-bold text-slate-900">Rp 210.000.000</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-green-600 bg-green-50 p-2 rounded-lg">
+                                <span class="font-bold">Nett Profit (22%)</span>
+                                <span class="font-bold">Rp 46.200.000</span>
+                            </div>
+                            <div class="text-[11px] text-slate-400 mt-2 italic">*Berdasarkan kinerja outlet yang sudah berjalan</div>
+                        </div>
+                        
+                        <a href="https://wa.me/6282110178222?text=Halo%20Admin,%20saya%20ingin%20proposal%20lengkap%20Franchise%20ABR" class="block w-full py-5 bg-gradient-to-r from-red-600 to-orange-600 text-white text-center rounded-2xl font-bold text-xl hover:from-red-700 hover:to-orange-700 transition-all shadow-xl shadow-red-500/40 hover:shadow-red-500/60 group relative overflow-hidden">
+                            <span class="absolute top-0 left-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:animate-[shimmer_1s_infinite]"></span>
+                            <i class="fa-brands fa-whatsapp mr-2 text-2xl align-middle group-hover:scale-110 transition-transform"></i> Ambil Peluang Ini
+                        </a>
+                    </div>
+
+                    <!-- Right: Features List -->
+                    <div class="bg-slate-50 rounded-[2.5rem] p-8 border border-slate-200 h-full relative overflow-hidden">
+                         <div class="absolute bottom-0 right-0 w-48 h-48 bg-red-100 rounded-tl-full -z-10 opacity-50"></div>
+                        <h4 class="font-extrabold text-slate-900 mb-6 text-lg flex items-center gap-2">
+                            <span class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center text-red-600"><i class="fa-solid fa-check"></i></span>
+                            Fasilitas yang Anda Dapat:
+                        </h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="fa-solid fa-circle-check text-red-500 mt-1"></i>
+                                <span>Hak Penggunaan Brand <strong>6 Tahun</strong></span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="fa-solid fa-circle-check text-red-500 mt-1"></i>
+                                <span>Renovasi Interior & Kitchen (120 m²)</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="fa-solid fa-circle-check text-red-500 mt-1"></i>
+                                <span>Peralatan Masak & Makan Lengkap</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="fa-solid fa-circle-check text-red-500 mt-1"></i>
+                                <span>Sistem POS (Kasir) & Training SDM</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="fa-solid fa-circle-check text-red-500 mt-1"></i>
+                                <span>Bahan Baku Awal & Paket Promosi</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-slate-700 font-medium">
+                                <i class="fa-solid fa-circle-check text-red-500 mt-1"></i>
+                                <span>Grand Opening Support</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-16 border-t-4 border-yellow-500 relative overflow-hidden">
+         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <div class="flex items-center justify-center gap-3 mb-6 animate-pulse-glow w-fit mx-auto p-2 rounded-2xl">
+                 <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center text-white text-xl font-heading font-bold border-2 border-yellow-400 shadow-lg shadow-red-900/50">
+                        ABR
+                    </div>
+                <span class="font-heading font-bold text-3xl tracking-wide">AYAM BAKAR <span class="text-red-500">RAJAWALI</span></span>
+            </div>
+            <p class="text-slate-400 text-lg mb-8 max-w-xl mx-auto leading-relaxed font-medium">
+                Jagonya Ayam Bakar Dadakan. 
+                <br>Marketing Office: Area SPBU OPI Jakabaring, Palembang.
+            </p>
+            
+            <div class="flex justify-center gap-6 mb-10">
+                 <a class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all hover:scale-110" href="#"><i class="fa-brands fa-instagram"></i></a>
+                 <a class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all hover:scale-110" href="#"><i class="fa-brands fa-tiktok"></i></a>
+                 <a class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-red-600 hover:text-white transition-all hover:scale-110" href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <div class="text-slate-600 text-sm border-t border-slate-800 pt-8">
+                <p>&copy; 2025 Ayam Bakar Rajawali. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button (WA) -->
+    <a class="fixed bottom-6 right-6 z-[9999] group" href="https://wa.me/6282110178222?text=Halo%2C%20saya%20tertarik%20Franchise%20ABR" target="_blank">
+        <div class="relative">
+            <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-white text-slate-800 text-sm font-bold px-4 py-2 rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap hidden md:block border border-red-100 translate-x-4 group-hover:translate-x-0">
+                Chat Tim Marketing
+                <div class="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45 border-t border-r border-red-100"></div>
+            </span>
+            <div class="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-[32px] shadow-2xl shadow-green-800/30 hover:shadow-green-600/50 hover:-translate-y-2 transition-all duration-300 ring-4 ring-white/50 animate-pulse-glow">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
+    </a>
+
 </body>
 </html>
