@@ -8,10 +8,6 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- React & ReactDOM -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    
     <!-- Babel (untuk JSX) -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
@@ -65,11 +61,13 @@
 <body class="bg-white text-gray-900">
     <div id="root"></div>
 
-    <!-- Import Map untuk Module -->
+    <!-- Import Map untuk Module Resolution -->
     <script type="importmap">
     {
       "imports": {
-        "lucide-react": "https://esm.sh/lucide-react@0.263.1?bundle"
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react@0.263.1"
       }
     }
     </script>
@@ -77,6 +75,7 @@
     <!-- Script Aplikasi React -->
     <script type="text/babel" data-type="module">
         import React, { useState, useEffect } from 'react';
+        import { createRoot } from 'react-dom/client';
         import { 
             Phone, CheckCircle, TrendingUp, Users, Award, MapPin, 
             Printer, ChevronRight, Calculator, Star, Layout, Target, 
@@ -85,7 +84,7 @@
             Camera, Briefcase, MousePointer2 
         } from 'lucide-react';
 
-        // Helper Icon untuk ArchiveBox (karena lucide-react versi tertentu mungkin berbeda nama)
+        // Helper Icon untuk ArchiveBox
         const ArchiveBox = (props) => (
             <svg 
                 {...props}
@@ -129,7 +128,7 @@
                 bg: '#FAFAFA'
             };
 
-            // Data Client dari Gambar Proposal (Page 12-13)
+            // Data Client dari Gambar Proposal
             const clients = [
                 "Bank BRI", "Pertamina Gas", "Bank BSI", "PLN", "Bank Mandiri", 
                 "Grab", "Shopee Food", "GoFood", "Aston Hotel", "Bank Sumsel Babel",
@@ -564,6 +563,7 @@
                         </div>
                         </div>
                     </div>
+                    </div>
                 </section>
 
                 {/* Footer */}
@@ -620,7 +620,7 @@
             );
         };
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
+        const root = createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
 </body>
