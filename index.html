@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -24,25 +25,28 @@
                 },
                 yellow: {
                    400: '#facc15', 500: '#eab308', 600: '#ca8a04' 
-                },
-                gold: {
-                    500: '#D4AF37', 600: '#AA8C2C'
                 }
               },
               animation: {
                  'float': 'float 6s ease-in-out infinite',
+                 'float-delayed': 'float 6s ease-in-out 3s infinite',
                  'pulse-glow': 'pulse-glow 2s infinite',
+                 'shimmer': 'shimmer 1s infinite',
+                 'bounce-slow': 'bounce 3s infinite',
                  'marquee': 'marquee 40s linear infinite',
               },
               keyframes: {
                 float: {
                     '0%, 100%': { transform: 'translateY(0)' },
-                    '50%': { transform: 'translateY(-10px)' },
+                    '50%': { transform: 'translateY(-20px)' },
                 },
                 'pulse-glow': {
                     '0%': { boxShadow: '0 0 0 0 rgba(220, 38, 38, 0.7)' },
                     '70%': { boxShadow: '0 0 0 15px rgba(220, 38, 38, 0)' },
                     '100%': { boxShadow: '0 0 0 0 rgba(220, 38, 38, 0)' },
+                },
+                shimmer: {
+                    '100%': { transform: 'skewX(-12deg) translateX(100%)' }
                 },
                 marquee: {
                     '0%': { transform: 'translateX(0)' },
@@ -60,455 +64,806 @@
 
     <style>
         html, body { overflow-x: hidden; scroll-behavior: smooth; }
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #b91c1c; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #991b1b; }
-        
-        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        ::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #b91c1c; }
     </style>
 </head>
 
 <body class="bg-slate-50 font-sans text-slate-800 antialiased relative">
 
-    <!-- Navbar Sticky Full Width (Business Style) -->
-    <nav class="fixed top-0 left-0 w-full z-[9999] bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-red-700 rounded-lg flex items-center justify-center text-white font-heading font-bold border-2 border-yellow-400 shadow-md">
-                        ABR
-                    </div>
-                    <div class="leading-tight">
-                        <span class="font-heading font-bold text-slate-900 text-xl tracking-tight block">AYAM BAKAR</span>
-                        <span class="font-heading font-bold text-red-600 text-lg tracking-widest block -mt-1">RAJAWALI</span>
-                    </div>
+    <!-- Navbar Floating -->
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999] w-[95%] max-w-6xl transition-all duration-300">
+        <div class="bg-white/95 backdrop-blur-md border border-white/50 rounded-full px-4 md:px-6 py-3 shadow-xl flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white font-heading font-bold border-2 border-yellow-400 shadow-md">
+                    ABR
                 </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-600 uppercase tracking-wide">
-                    <a href="#profil" class="hover:text-red-600 transition-colors relative group">Profil<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span></a>
-                    <a href="#keunggulan" class="hover:text-red-600 transition-colors relative group">Keunggulan<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span></a>
-                    <a href="#menu" class="hover:text-red-600 transition-colors relative group">Menu<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span></a>
-                    <a href="#klien" class="hover:text-red-600 transition-colors relative group">Klien<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span></a>
-                    <a href="#investasi" class="hover:text-red-600 transition-colors relative group">Investasi<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span></a>
-                </div>
-
-                <!-- CTA Button -->
-                <a href="https://wa.me/6282110178222?text=Halo%20Admin%20ABR,%20saya%20tertarik%20info%20Franchise%20Paket%20750Juta" class="bg-red-700 hover:bg-red-800 text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-lg transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> <span class="hidden md:inline">Hubungi Kami</span><span class="md:hidden">Gabung</span>
-                </a>
+                <span class="font-heading font-bold text-slate-900 tracking-tight leading-none hidden sm:block text-lg">
+                    AYAM BAKAR<br><span class="text-red-600">RAJAWALI</span>
+                </span>
             </div>
+            
+            <div class="hidden xl:flex gap-6 text-sm font-bold text-slate-600 uppercase tracking-wide">
+                <a href="#profil" class="hover:text-red-600 transition-colors">Profil</a>
+                <a href="#keunggulan" class="hover:text-red-600 transition-colors">Keunggulan</a>
+                <a href="#menu" class="hover:text-red-600 transition-colors">Menu</a>
+                <a href="#klien" class="hover:text-red-600 transition-colors">Klien</a>
+                <a href="#investasi" class="hover:text-red-600 transition-colors">Investasi</a>
+            </div>
+
+            <a href="https://wa.me/6282110178222?text=Halo%20Admin%20ABR,%20saya%20tertarik%20info%20Franchise%20Paket%20750Juta" class="bg-gradient-to-r from-red-600 to-orange-500 text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-bold shadow-lg shadow-red-500/30 hover:shadow-red-500/50 transition-all hover:-translate-y-0.5 group flex items-center">
+                <i class="fa-brands fa-whatsapp mr-2 text-lg group-hover:rotate-12 transition-transform"></i> <span class="hidden md:inline">Gabung Mitra</span><span class="md:hidden">Gabung</span>
+            </a>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="relative pt-32 pb-16 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
-        <!-- Background Decor -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-orange-50 -z-10 rounded-bl-[100px] hidden lg:block"></div>
-        
+    <!-- HERO SECTION (UPDATED FOR MOBILE) -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-orange-50/80 to-white -z-20"></div>
+        <div class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-red-200/40 rounded-full blur-[100px] -z-10 animate-float"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-yellow-200/40 rounded-full blur-[80px] -z-10 animate-float-delayed"></div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 
-                <!-- Text Content (Mobile: Order 1 - Top) -->
+                <!-- Text Content (Order 1 on Desktop, Order 1 on Mobile - KEEPING TOP) -->
                 <div class="text-center lg:text-left space-y-6 order-1 relative z-10">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-red-100 text-red-800 text-xs font-bold uppercase tracking-wider border border-red-200">
-                        <i class="fa-solid fa-crown text-yellow-600"></i> The Legend of Palembang Culinary
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-700 text-sm font-bold uppercase tracking-wider border border-red-100 shadow-sm animate-bounce-slow">
+                        <i class="fa-solid fa-crown text-yellow-500"></i> The Legend of Palembang Culinary
                     </div>
                     
-                    <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-tight">
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
                         Warisan Rasa <br>
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-yellow-500">Sejak 1985.</span>
                     </h1>
                     
-                    <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                    <p class="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
                         Investasi anti-gagal di bisnis kuliner yang telah teruji zaman. 
-                        Bergabunglah dengan <span class="text-red-700 font-bold bg-red-50 px-1">Jagonya Ayam Bakar Dadakan</span> dan rasakan profit bisnis yang berkah & berkelanjutan.
+                        Bergabunglah dengan <span class="text-red-600 font-bold">Jagonya Ayam Bakar Dadakan</span> dan rasakan profit bisnis yang berkah & berkelanjutan.
                     </p>
 
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 text-sm text-slate-500 font-bold pb-2">
-                        <span class="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200"><i class="fa-solid fa-check-circle text-green-600"></i> Teruji Anti Krisis</span>
-                        <span class="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200"><i class="fa-solid fa-users text-blue-600"></i> Ribuan Pelanggan</span>
+                    <!-- Trust Badges (Moved here for mobile logic) -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3 text-sm text-slate-500 font-bold pb-4 lg:pb-0">
+                        <span class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100"><i class="fa-solid fa-shield-halved text-green-500"></i> Bisnis Teruji</span>
+                        <span class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100"><i class="fa-solid fa-users text-blue-500"></i> Ribuan Pelanggan</span>
                     </div>
                     
+                    <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                        <a href="#investasi" class="px-8 py-4 bg-red-700 text-white rounded-xl font-bold text-lg hover:bg-red-800 transition-all shadow-xl shadow-red-500/20 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-chart-line"></i> Lihat Potensi Cuan
+                        <a href="#investasi" class="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-2xl font-bold text-lg hover:from-red-700 hover:to-orange-700 transition-all shadow-xl shadow-red-500/30 hover:shadow-red-500/50 animate-pulse-glow flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-money-bill-trend-up"></i> Lihat Potensi Cuan
                         </a>
-                        <a href="#profil" class="px-8 py-4 bg-white text-slate-700 border-2 border-slate-200 rounded-xl font-bold text-lg hover:border-red-600 hover:text-red-600 transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-book-open"></i> Pelajari Kisah Kami
+                        <a href="#profil" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold text-lg hover:bg-slate-50 hover:border-red-200 transition-all flex items-center justify-center gap-2 group shadow-sm">
+                            <i class="fa-solid fa-book-open text-red-500 group-hover:scale-110 transition-transform"></i> Pelajari Kisah Kami
                         </a>
                     </div>
                 </div>
 
-                <!-- Visual Content (Mobile: Order 2 - Bottom) -->
-                <div class="relative mx-auto lg:mr-0 w-full max-w-[500px] order-2 mt-8 lg:mt-0">
-                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white animate-float">
-                        <img src="https://placehold.co/600x700/800000/FFF?text=Ayam+Bakar+Rajawali+Signature" alt="Ayam Bakar Rajawali" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 text-white">
-                            <p class="font-heading text-xl font-bold">Menu Andalan</p>
-                            <p class="text-yellow-400 font-bold text-sm">Terjual 5.000+ Box/Hari</p>
+                <!-- Visual Content (Order 2 - Placed AFTER Text on Mobile) -->
+                <div class="relative mx-auto lg:mr-0 w-full max-w-[500px] order-2">
+                    <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl shadow-red-900/20 border-8 border-white animate-float group">
+                        <img src="https://placehold.co/600x700/800000/FFF?text=Ayam+Bakar+Rajawali+Signature" alt="Ayam Bakar Rajawali" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+                            <p class="text-white font-heading text-2xl font-bold">Menu Andalan</p>
+                            <p class="text-yellow-400 font-bold">Terjual 5.000+ Box/Hari</p>
                         </div>
                     </div>
                     <!-- Badge -->
-                    <div class="absolute -top-4 -left-4 bg-yellow-500 text-red-900 p-4 rounded-2xl shadow-xl z-20 border-4 border-white">
-                        <p class="text-3xl font-heading font-bold text-center leading-none">35+</p>
-                        <p class="text-[10px] font-bold uppercase tracking-wider text-center mt-1">Tahun<br>Melayani</p>
+                    <div class="absolute -top-6 -left-6 bg-red-600 text-white p-6 rounded-3xl shadow-xl shadow-red-600/30 animate-bounce-slow z-20 border-4 border-white hidden md:block">
+                        <p class="text-4xl font-heading font-bold text-center leading-none">35+</p>
+                        <p class="text-xs font-bold uppercase tracking-wider text-center mt-1">Tahun<br>Melayani</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROFIL (Compact Layout) -->
-    <section id="profil" class="py-20 bg-white">
+    <!-- PROFIL -->
+    <section id="profil" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
-                <div class="order-1 lg:order-1 relative group">
-                    <div class="absolute top-4 left-4 w-full h-full border-4 border-red-100 rounded-2xl -z-10 group-hover:top-2 group-hover:left-2 transition-all"></div>
-                    <img src="https://placehold.co/600x400/800000/FFF?text=Sejarah+Ayam+Bakar+Rajawali" alt="Sejarah ABR" class="w-full h-auto rounded-2xl shadow-lg object-cover">
-                </div>
-                <div class="order-2 lg:order-2">
-                    <h2 class="text-red-700 font-bold uppercase tracking-widest text-sm mb-2">Sejarah Kami</h2>
-                    <h3 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">
-                        Dari Pikulan Hingga <span class="text-red-600 underline decoration-yellow-400">4 Outlet Besar</span>
-                    </h3>
-                    <div class="space-y-3 text-slate-600 text-base leading-relaxed text-justify">
-                        <p>Sejak <strong>1985</strong>, usaha ini dirintis dari jualan pikulan oleh orang tua. Tahun <strong>2012</strong>, Mas Supri mengambil alih estafet kepemimpinan, membawa inovasi dan evolusi manajemen.</p>
-                        <p>Kami telah ditempa oleh ujian: Kebakaran (2015 & 2019) dan Pandemi Covid-19. Namun, kami bangkit lebih kuat dengan konsep <em>Spiritual Company</em>.</p>
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                <div class="relative order-2 lg:order-1">
+                    <div class="absolute -inset-4 bg-red-100 rounded-[2.5rem] transform -rotate-2"></div>
+                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://placehold.co/600x800/800000/FFF?text=Foto+Mas+Supri+Owner" alt="Profil Owner ABR" class="w-full h-auto object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-red-900/95 to-transparent p-8 text-white">
+                            <p class="font-heading text-xl italic leading-relaxed">"Bukan hanya karena masa lalu, tetapi kami punya masa depan yang harus dipertanggungjawabkan."</p>
+                            <p class="text-sm font-bold text-yellow-400 mt-3 border-t border-white/20 pt-3 inline-block">- Mas Supri (Owner)</p>
+                        </div>
                     </div>
-                    <div class="mt-6 p-4 bg-slate-50 border-l-4 border-red-600 rounded-r-lg">
-                        <p class="italic text-slate-700 text-sm">"Bukan hanya karena masa lalu, tetapi kami punya masa depan yang harus dipertanggungjawabkan."</p>
-                        <p class="text-xs font-bold text-slate-900 mt-2">- Mas Supri (Owner)</p>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">Sejarah Kami</h2>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+                        Dari Pikulan, Gerobak, Hingga <br> <span class="text-red-600">4 Outlet Besar</span>
+                    </h2>
+                    <div class="space-y-4 text-slate-600 text-lg leading-relaxed text-justify">
+                        <p>Sejak <strong>1985</strong> usaha ayam bakar dan bakso dirintis oleh orangtua. Melewati berbagai kondisi dan persaingan, hingga pada tahun <strong>2012</strong> estafet kepemimpinan berlanjut ke saya (Mas Supri) untuk berinovasi dan berevolusi.</p>
+                        <p>Perjalanan kami penuh ujian. Melewati musibah kebakaran (2015 & 2019) dan badai pandemi Covid-19. Namun kami memilih untuk bangkit, memperbaiki manajemen, SDM, dan membangun <em>spiritual company</em>.</p>
+                        <p>Kini, Alhamdulillah Ayam Bakar Rajawali telah menjadi restoran pilihan keluarga dengan 4 cabang utama di Palembang.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISI MISI GRID -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-red-600 text-white p-10 rounded-[2.5rem] relative overflow-hidden shadow-xl hover:-translate-y-1 transition-transform">
+                    <div class="absolute top-0 right-0 p-8 opacity-10 text-9xl"><i class="fa-solid fa-eye"></i></div>
+                    <h3 class="text-3xl font-heading font-bold mb-6 flex items-center gap-3"><i class="fa-solid fa-lightbulb text-yellow-300"></i> Visi Kami</h3>
+                    <ol class="space-y-3 relative z-10 text-white/90 font-medium list-decimal pl-5">
+                        <li>Melestarikan makanan khas Indonesia.</li>
+                        <li>Menjadikan bisnis untuk menebar manfaat ke masyarakat luas.</li>
+                        <li>Menjadikan bisnis sebagai ladang dakwah untuk meraih keberkahan.</li>
+                    </ol>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 p-10 rounded-[2.5rem] relative overflow-hidden shadow-lg hover:border-red-200 transition-colors">
+                    <h3 class="text-3xl font-heading font-bold mb-6 flex items-center gap-3 text-slate-900"><i class="fa-solid fa-rocket text-red-600"></i> Misi Kami</h3>
+                    <ol class="space-y-3 relative z-10 text-slate-600 font-medium list-decimal pl-5">
+                        <li>Membuka outlet di seluruh kota di Indonesia.</li>
+                        <li>Memberikan pelayanan terbaik ke konsumen.</li>
+                        <li>Membangun budaya SDM yang berkarakter.</li>
+                        <li>Membuka lapangan pekerjaan dan peluang usaha untuk Mitra.</li>
+                        <li>Menjadi jalan kebermanfaatan sosial (Yatim & Dhuafa).</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN & REWARD -->
+    <section id="keunggulan" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center mb-16">
+            <h2 class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">Kenapa Memilih Kami?</h2>
+            <h3 class="text-4xl font-extrabold text-slate-900">Keunggulan & Reward ABR</h3>
+            <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Lebih dari sekadar bisnis, kami memberikan nilai tambah bagi mitra dan pelanggan.</p>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 relative z-10 mb-16">
+            <!-- Keunggulan Items -->
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border-b-4 border-red-500 group">
+                <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-thumbs-up"></i></div>
+                <h4 class="text-xl font-bold mb-3">Rasa Autentik & Stabil</h4>
+                <p class="text-slate-600">Resep rahasia keluarga sejak 1985 dengan kontrol kualitas yang ketat, memastikan rasa yang konsisten di semua outlet.</p>
+            </div>
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border-b-4 border-yellow-500 group">
+                <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-boxes-packing"></i></div>
+                <h4 class="text-xl font-bold mb-3">Rajanya Nasi Box</h4>
+                <p class="text-slate-600">Kapasitas produksi besar hingga 5.000 box/hari. Menjadi pilihan utama untuk acara kantor, instansi, dan syukuran.</p>
+            </div>
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border-b-4 border-red-500 group">
+                <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                <h4 class="text-xl font-bold mb-3">Bisnis Bernilai Ibadah</h4>
+                <p class="text-slate-600">Konsep <em>Spiritual Company</em>. Sebagian keuntungan disisihkan untuk kegiatan sosial, dhuafa, dan yatim piatu.</p>
+            </div>
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border-b-4 border-yellow-500 group">
+                <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-headset"></i></div>
+                <h4 class="text-xl font-bold mb-3">Full Support System</h4>
+                <p class="text-slate-600">Dukungan penuh dari pusat, mulai dari survei lokasi, desain, renovasi, pelatihan SDM, hingga pendampingan operasional berkelanjutan.</p>
+            </div>
+            <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border-b-4 border-red-500 group">
+                <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-bullhorn"></i></div>
+                <h4 class="text-xl font-bold mb-3">Marketing Powerfull</h4>
+                <p class="text-slate-600">Strategi pemasaran terintegrasi online & offline. Brand awareness kuat di media sosial dan rating tinggi di platform online food delivery.</p>
+            </div>
+             <div class="bg-white p-8 rounded-[2rem] shadow-sm hover:shadow-2xl transition-all border-b-4 border-yellow-500 group">
+                <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 text-3xl mb-6 group-hover:scale-110 transition-transform"><i class="fa-solid fa-chart-line"></i></div>
+                <h4 class="text-xl font-bold mb-3">Potensi Profit Tinggi</h4>
+                <p class="text-slate-600">Sistem bisnis yang teruji dan efisien, menawarkan potensi pengembalian investasi (ROI) yang menarik dan cepat.</p>
+            </div>
+        </div>
+
+        <!-- Reward Section -->
+        <div class="max-w-5xl mx-auto px-4 relative z-10 bg-gradient-to-r from-red-600 to-orange-500 rounded-[3rem] p-10 md:p-16 text-white text-center shadow-2xl animate-pulse-glow">
+             <div class="inline-block bg-white/20 px-4 py-1 rounded-full text-xs font-bold uppercase mb-4 tracking-widest border border-white/30">Customer Loyalty Program</div>
+             <h3 class="text-3xl font-heading font-bold mb-8"><i class="fa-solid fa-gift text-yellow-300 mr-3"></i> Reward & Benefit Spesial Pelanggan</h3>
+             <div class="grid md:grid-cols-3 gap-8">
+                 <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors">
+                     <div class="text-4xl mb-4 text-yellow-300"><i class="fa-solid fa-bowl-rice"></i></div>
+                     <h4 class="font-bold text-xl mb-2">Bebas Tambah Nasi</h4>
+                     <p class="text-sm opacity-90">Gratis tambah nasi sepuasnya untuk makan di tempat (Dine-in). Bikin kenyang!</p>
+                 </div>
+                 <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors">
+                     <div class="text-4xl mb-4 text-yellow-300"><i class="fa-solid fa-bowl-food"></i></div>
+                     <h4 class="font-bold text-xl mb-2">Free Sayur Asem</h4>
+                     <p class="text-sm opacity-90">Nikmati sayur asem segar gratis sebagai pelengkap hidangan setiap hari.</p>
+                 </div>
+                 <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/20 transition-colors">
+                     <div class="text-4xl mb-4 text-yellow-300"><i class="fa-solid fa-truck-fast"></i></div>
+                     <h4 class="font-bold text-xl mb-2">Free Ongkir</h4>
+                     <p class="text-sm opacity-90">Gratis ongkos kirim untuk pemesanan jumlah tertentu dalam radius area terdekat.</p>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- MENU GRID -->
+    <section id="menu" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ef4444_1px,transparent_1px)] bg-[length:30px_30px]"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-yellow-400 font-bold tracking-wider uppercase text-sm">Menu Favorit</span>
+                <h3 class="text-4xl md:text-5xl font-extrabold mt-2">Pilihan Menu Menggugah Selera</h3>
+            </div>
+            <!-- Grid 16 Menu Items -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Item Template -->
+                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Bakar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Nasi Ayam Bakar</h4>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Geprek" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Nasi Ayam Geprek</h4>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Kremes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Nasi Ayam Kremes</h4>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Utuh" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Ayam Utuh</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Nila+Bakar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Nasi Nila Bakar</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Bakso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Bakso Kuah</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Mie+Ayam" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Mie Ayam</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Bakso+Bakar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Bakso Bakar</h4>
+                    </div>
+                </div>
+                <!-- Minuman -->
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Es+Campur" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Es Campur</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Es+Kacang+Merah" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Es Kacang Merah</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Es+Cincau" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Es Cincau</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Jus+Alpukat" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Jus Alpukat</h4>
+                    </div>
+                </div>
+                <!-- More Drinks -->
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Soda+Gembira" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Soda Gembira</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Cappucino" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Es Cappucino</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Lemon+Tea" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Lemon Tea</h4>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-red-500 transition-all group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/400x400/333/FFF?text=Es+Jeruk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h4 class="font-bold">Es Jeruk</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KEUNGGULAN (Minimalist Grid) -->
-    <section id="keunggulan" class="py-20 bg-slate-50">
+    <!-- TESTIMONIAL & CLIENTS (RESTUCTURED & LOGO FIXED) -->
+    <section id="klien" class="py-24 bg-white relative border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4">
+             <div class="text-center mb-16">
+                <h2 class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">Testimoni & Klien</h2>
+                <h2 class="text-4xl font-extrabold text-slate-900">Kepercayaan Adalah Aset Kami</h2>
+            </div>
+
+            <!-- Customer Reviews Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-24">
+                <div class="bg-slate-50 p-8 rounded-[2.5rem] shadow-sm hover:shadow-md transition-all border border-slate-100 relative">
+                    <!-- Placeholder Quote Icon -->
+                    <div class="absolute top-6 right-8 text-6xl text-slate-200 font-serif leading-none">“</div>
+                    <div class="flex text-yellow-400 mb-4 text-lg">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6 relative z-10">"Rasa ayam bakarnya bener-bener meresap sampai ke tulang. Sambalnya mantap! Selalu jadi andalan buat makan siang kantor."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center font-bold text-red-600 text-xl">A</div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-lg">Andi Saputra</p>
+                            <p class="text-sm text-slate-500">Review Google Maps</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="bg-slate-50 p-8 rounded-[2.5rem] shadow-sm hover:shadow-md transition-all border border-slate-100 relative">
+                    <div class="absolute top-6 right-8 text-6xl text-slate-200 font-serif leading-none">“</div>
+                    <div class="flex text-yellow-400 mb-4 text-lg">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6 relative z-10">"Penyajian cepat, tempat bersih, dan pelayanan ramah. Recommended banget buat acara keluarga besar."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600 text-xl">S</div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-lg">Siti Aminah</p>
+                            <p class="text-sm text-slate-500">Review GrabFood</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="bg-slate-50 p-8 rounded-[2.5rem] shadow-sm hover:shadow-md transition-all border border-slate-100 relative">
+                    <div class="absolute top-6 right-8 text-6xl text-slate-200 font-serif leading-none">“</div>
+                    <div class="flex text-yellow-400 mb-4 text-lg">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-6 relative z-10">"Pesan 200 box buat acara syukuran, semua tamu bilang enak. Pengantaran tepat waktu. Profesional!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-600 text-xl">B</div>
+                        <div>
+                            <p class="font-bold text-slate-900 text-lg">Budi Santoso</p>
+                            <p class="text-sm text-slate-500">Corporate Client</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Logos Grid (UPDATED & IMPROVED) -->
             <div class="text-center mb-12">
-                <h3 class="text-3xl font-extrabold text-slate-900">Keunggulan Bisnis</h3>
-                <p class="text-slate-600 mt-2">Alasan mengapa ABR adalah pilihan investasi terbaik.</p>
+                <h3 class="text-2xl font-extrabold text-slate-900 mb-4 uppercase tracking-wide">Dipercaya Instansi Pemerintah & Swasta</h3>
+                <p class="text-slate-600">Kebanggaan kami dapat melayani berbagai Instansi Pemerintah, BUMN, Perbankan, Rumah Sakit, dan Perusahaan Swasta.</p>
+            </div>
+            <!-- Improved Grid: Tighter spacing, better sizing, hover effects -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 items-center justify-items-center opacity-80">
+                 <!-- Row 1 -->
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BRI" alt="BRI" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Mandiri" alt="Mandiri" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BCA" alt="BCA" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BNI" alt="BNI" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Bank+Sumsel" alt="Bank Sumsel" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BTN" alt="BTN" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 
+                 <!-- Row 2 -->
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Pertamina" alt="Pertamina" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=PLN" alt="PLN" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Pusri" alt="Pusri" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Telkomsel" alt="Telkomsel" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Grab" alt="Grab" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Shopee" alt="Shopee" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+
+                 <!-- Row 3 -->
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Siloam" alt="RS Siloam" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Charitas" alt="RS Charitas" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Hermina" alt="RS Hermina" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RSUP+Hoesin" alt="RSUP Hoesin" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Bunda" alt="RS Bunda" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BPJS" alt="BPJS" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+
+                 <!-- Row 4 -->
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Aston" alt="Aston" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Favehotel" alt="Favehotel" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Auto2000" alt="Auto2000" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=JNE" alt="JNE" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=JSC" alt="JSC" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Kemenkeu" alt="Kemenkeu" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION (RESTUCTURED) -->
+    <section id="gallery" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Galeri Outlet & Aktivitas</h2>
+                <p class="text-slate-600 text-lg">Bukti nyata keramaian, kesibukan, dan profesionalisme outlet kami setiap hari.</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:border-red-500 hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-2xl mb-4"><i class="fa-solid fa-fire-burner"></i></div>
-                    <h4 class="font-bold text-lg mb-2">Rasa Autentik</h4>
-                    <p class="text-sm text-slate-600">Resep rahasia keluarga sejak 1985. Kualitas rasa terjaga dan konsisten di semua cabang.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <!-- Foto Suasana Dine-in -->
+                <div class="col-span-2 row-span-2 relative rounded-3xl overflow-hidden group">
+                    <img src="https://placehold.co/800x800/800000/FFF?text=Suasana+Dine-In+Ramai" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Suasana Dine-In Ramai">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="absolute bottom-6 left-6 bg-white/90 px-5 py-2 rounded-full text-sm font-bold shadow-md backdrop-blur-sm">Area Makan Nyaman</span>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:border-yellow-500 hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600 text-2xl mb-4"><i class="fa-solid fa-box-open"></i></div>
-                    <h4 class="font-bold text-lg mb-2">Rajanya Nasi Box</h4>
-                    <p class="text-sm text-slate-600">Kapasitas 5.000 box/hari. Langganan tetap instansi pemerintahan & swasta.</p>
+                <!-- Foto Antrian Ojol -->
+                <div class="col-span-1 row-span-2 relative rounded-3xl overflow-hidden group">
+                    <img src="https://placehold.co/400x800/b91c1c/FFF?text=Antrian+Mitra+Ojol" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Antrian Ojol">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="absolute bottom-6 left-6 bg-white/90 px-5 py-2 rounded-full text-sm font-bold shadow-md backdrop-blur-sm">Mitra Online Ramai</span>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:border-red-500 hover:shadow-md transition-all">
-                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 text-2xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
-                    <h4 class="font-bold text-lg mb-2">Profit Tinggi</h4>
-                    <p class="text-sm text-slate-600">Sistem bisnis efisien dengan potensi ROI (Return on Investment) yang cepat.</p>
+                <!-- Foto Pesanan Nasi Box -->
+                <div class="relative rounded-3xl overflow-hidden group">
+                    <img src="https://placehold.co/400x400/eab308/333?text=Ribuan+Pesanan+Nasi+Box" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Pesanan Nasi Box">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="absolute bottom-4 left-4 bg-white/90 px-4 py-1 rounded-full text-xs font-bold shadow-md backdrop-blur-sm">Orderan Instansi</span>
+                </div>
+                <!-- Foto Dapur/Kitchen -->
+                <div class="relative rounded-3xl overflow-hidden group">
+                    <img src="https://placehold.co/400x400/333/FFF?text=Aktivitas+Dapur+Profesional" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Aktivitas Dapur">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="absolute bottom-4 left-4 bg-white/90 px-4 py-1 rounded-full text-xs font-bold shadow-md backdrop-blur-sm">Dapur Higienis</span>
+                </div>
+                <!-- Foto Tim/Karyawan -->
+                <div class="col-span-2 relative rounded-3xl overflow-hidden group">
+                    <img src="https://placehold.co/800x400/555/FFF?text=Tim+Solid+Siap+Melayani" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Tim ABR">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="absolute bottom-6 left-6 bg-white/90 px-5 py-2 rounded-full text-sm font-bold shadow-md backdrop-blur-sm">SDM Terlatih</span>
+                </div>
+                <!-- Foto Kunjungan Pelanggan -->
+                 <div class="col-span-2 relative rounded-3xl overflow-hidden group">
+                    <img src="https://placehold.co/800x400/777/FFF?text=Kunjungan+Keluarga+%26+Komunitas" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Kunjungan Pelanggan">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <span class="absolute bottom-6 left-6 bg-white/90 px-5 py-2 rounded-full text-sm font-bold shadow-md backdrop-blur-sm">Pilihan Keluarga</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- REWARD & BENEFIT (Improved Mobile View) -->
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <!-- Box Container with Margins on Mobile -->
-            <div class="mx-2 md:mx-0 bg-gradient-to-r from-red-700 to-red-600 rounded-2xl shadow-2xl p-8 md:p-12 text-white relative overflow-hidden">
-                <!-- Pattern Overlay -->
-                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
-                
-                <div class="relative z-10 text-center">
-                    <h3 class="text-2xl md:text-3xl font-heading font-bold mb-8 uppercase tracking-wide">
-                        <i class="fa-solid fa-gift text-yellow-400 mr-2"></i> Reward Spesial Pelanggan
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Item 1 -->
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all">
-                            <div class="text-4xl text-yellow-400 mb-3"><i class="fa-solid fa-bowl-rice"></i></div>
-                            <h4 class="font-bold text-xl mb-1">Bebas Tambah Nasi</h4>
-                            <p class="text-xs md:text-sm text-red-100">Gratis nambah nasi sepuasnya untuk makan di tempat.</p>
+    <!-- MEDIA PEMASARAN (RESTUCTURED) -->
+    <section id="marketing" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">Dukungan Promosi</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900">Media Pemasaran Terintegrasi</h3>
+                <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Kami memastikan outlet Anda dikenal luas melalui strategi pemasaran online dan offline yang efektif.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Online Marketing -->
+                <div class="bg-white p-10 rounded-[3rem] shadow-lg border border-slate-100 relative overflow-hidden group hover:border-red-200 transition-all">
+                    <div class="absolute top-0 right-0 w-40 h-40 bg-red-50 rounded-bl-[3rem] -z-10 group-hover:bg-red-100 transition-colors"></div>
+                    <h4 class="text-2xl font-heading font-bold mb-8 flex items-center gap-4 text-slate-900">
+                        <span class="w-14 h-14 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg shadow-red-200"><i class="fa-solid fa-globe"></i></span>
+                        Digital & Online Channel
+                    </h4>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-brands fa-google text-3xl text-red-500"></i>
+                            <div><p class="font-bold">Google Ads</p><p class="text-xs text-slate-500">Targeted Ads</p></div>
                         </div>
-                        <!-- Item 2 -->
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all">
-                            <div class="text-4xl text-yellow-400 mb-3"><i class="fa-solid fa-bowl-food"></i></div>
-                            <h4 class="font-bold text-xl mb-1">Free Sayur Asem</h4>
-                            <p class="text-xs md:text-sm text-red-100">Pelengkap hidangan segar setiap hari, gratis.</p>
+                         <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-brands fa-instagram text-3xl text-pink-500"></i>
+                            <div><p class="font-bold">Instagram Ads</p><p class="text-xs text-slate-500">Social Media</p></div>
                         </div>
-                        <!-- Item 3 -->
-                        <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all">
-                            <div class="text-4xl text-yellow-400 mb-3"><i class="fa-solid fa-truck-fast"></i></div>
-                            <h4 class="font-bold text-xl mb-1">Free Ongkir</h4>
-                            <p class="text-xs md:text-sm text-red-100">Gratis antar untuk pemesanan dalam radius tertentu.</p>
+                        <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-brands fa-facebook text-3xl text-blue-600"></i>
+                            <div><p class="font-bold">Facebook Ads</p><p class="text-xs text-slate-500">Social Media</p></div>
+                        </div>
+                        <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-brands fa-tiktok text-3xl text-black"></i>
+                            <div><p class="font-bold">TikTok Ads</p><p class="text-xs text-slate-500">Video Content</p></div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-100">
+                        <p class="font-bold mb-4 flex items-center gap-2"><i class="fa-solid fa-motorcycle text-green-500"></i> Online Food Delivery Partners:</p>
+                        <div class="flex gap-4 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+                            <span class="font-heading font-bold text-xl text-green-600">GRABFOOD</span>
+                            <span class="font-heading font-bold text-xl text-red-600">GOFOOD</span>
+                            <span class="font-heading font-bold text-xl text-orange-500">SHOPEEFOOD</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- MENU GRID (Fixed Visibility) -->
-    <section id="menu" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12">
-                <span class="text-yellow-500 font-bold uppercase text-xs tracking-widest">Menu Favorit</span>
-                <h3 class="text-3xl font-extrabold mt-1">Pilihan Menu Lezat</h3>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <!-- Loop Menu Items (Using clear aspect ratio) -->
-                <!-- Ayam -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Bakar" alt="Ayam Bakar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Nasi Ayam Bakar</h4>
-                    </div>
-                </div>
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Geprek" alt="Ayam Geprek" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Nasi Ayam Geprek</h4>
-                    </div>
-                </div>
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Kremes" alt="Ayam Kremes" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Nasi Ayam Kremes</h4>
-                    </div>
-                </div>
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Ayam+Utuh" alt="Ayam Utuh" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Ayam Utuh</h4>
-                    </div>
-                </div>
-                <!-- Ikan & Lainnya -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Nila+Bakar" alt="Nila Bakar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Nasi Nila Bakar</h4>
-                    </div>
-                </div>
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Bakso+Kuah" alt="Bakso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Bakso Kuah</h4>
-                    </div>
-                </div>
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Bakso+Bakar" alt="Bakso Bakar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Bakso Bakar</h4>
-                    </div>
-                </div>
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 group hover:border-red-500 transition-all">
-                    <div class="aspect-square overflow-hidden bg-slate-700">
-                        <img src="https://placehold.co/400x400/333/FFF?text=Es+Kacang" alt="Es Kacang Merah" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                    </div>
-                    <div class="p-3 text-center">
-                        <h4 class="font-bold text-sm md:text-base">Es Kacang Merah</h4>
-                    </div>
+                <!-- Offline Marketing -->
+                <div class="bg-white p-10 rounded-[3rem] shadow-lg border border-slate-100 relative overflow-hidden group hover:border-yellow-200 transition-all">
+                     <div class="absolute top-0 right-0 w-40 h-40 bg-yellow-50 rounded-bl-[3rem] -z-10 group-hover:bg-yellow-100 transition-colors"></div>
+                    <h4 class="text-2xl font-heading font-bold mb-8 flex items-center gap-4 text-slate-900">
+                        <span class="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg shadow-yellow-200"><i class="fa-solid fa-print"></i></span>
+                        Offline & In-Store Media
+                    </h4>
+                    <ul class="space-y-4 text-slate-700 font-medium">
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-solid fa-panorama text-yellow-500 text-2xl"></i>
+                            <span>Spanduk & Baliho di Lokasi Strategis</span>
+                        </li>
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-solid fa-signs-post text-yellow-500 text-2xl"></i>
+                            <span>Neon Box & Signage Outlet yang Menarik</span>
+                        </li>
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-solid fa-scroll text-yellow-500 text-2xl"></i>
+                            <span>X-Banner Menu & Promo di Outlet</span>
+                        </li>
+                        <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-solid fa-flyer text-yellow-500 text-2xl"></i>
+                            <span>Penyebaran Brosur & Flyer di Area Sekitar</span>
+                        </li>
+                         <li class="flex items-center gap-4 p-3 bg-slate-50 rounded-2xl border border-slate-200">
+                            <i class="fa-solid fa-shirt text-yellow-500 text-2xl"></i>
+                            <span>Seragam Karyawan yang Profesional</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KLIEN (Logos Updated: Closer & Bigger) -->
-    <section id="klien" class="py-20 bg-white border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h3 class="text-2xl font-extrabold text-slate-900 mb-2 uppercase tracking-wide">Dipercaya Instansi Pemerintah & Swasta</h3>
-                <p class="text-sm text-slate-500">Kami bangga melayani berbagai institusi terkemuka di Indonesia.</p>
-            </div>
-            
-            <!-- Grid Rapat & Besar -->
-            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-6 items-center justify-items-center">
-                 <!-- Bank -->
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=BRI" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Mandiri" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=BCA" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=BNI" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Bank+Sumsel" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=BTN" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Maybank" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Bank+Mega" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-
-                 <!-- Pemerintah & BUMN -->
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Pertamina" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=PLN" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Pusri" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Telkomsel" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Kemenkeu" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=BPJS" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Tirta+Dharma" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Indofarma" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-
-                 <!-- RS & Kesehatan -->
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=RS+Siloam" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=RS+Charitas" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=RS+Hermina" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=RSUP+Hoesin" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=RS+Bunda" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Ernaldi+Bahar" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Prodia" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Benings" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-
-                 <!-- Swasta & Hotel -->
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Aston" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Favehotel" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Classie+Hotel" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=Auto2000" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=JNE" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-                 <img src="https://placehold.co/150x80/f1f5f9/475569?text=JSC" class="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all">
-            </div>
-        </div>
-    </section>
-
-    <!-- INVESTASI (Compact & Clear) -->
-    <section id="investasi" class="py-20 bg-slate-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-4xl font-extrabold text-slate-900">Paket Kemitraan</h2>
-                <p class="text-slate-600 mt-2">Satu paket lengkap, langsung siap jualan.</p>
+    <!-- INVESTASI (RESTUCTURED) -->
+    <section id="investasi" class="py-24 bg-gradient-to-b from-white to-red-50 relative">
+        <div class="absolute top-0 right-0 w-[50%] h-[50%] bg-orange-100 rounded-full blur-[120px] -z-10 opacity-60"></div>
+        <div class="max-w-5xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-extrabold text-slate-900 tracking-tight">Paket Kemitraan Premium</h2>
+                <p class="mt-4 text-slate-600 text-lg">Solusi bisnis kuliner terima beres. Sistem teruji, profit menanti.</p>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
-                <div class="grid md:grid-cols-2">
-                    <div class="p-8 md:p-12 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-200 flex flex-col justify-center text-center md:text-left">
-                        <div class="inline-block bg-red-100 text-red-700 px-4 py-1 rounded-full text-xs font-bold mb-4 self-center md:self-start">ALL IN PACKAGE</div>
-                        <h3 class="text-6xl font-extrabold text-slate-900 mb-2">750<span class="text-3xl text-slate-500">Jt</span></h3>
-                        <p class="text-slate-500 font-bold mb-6">Investasi Awal Lengkap (Full Furnished)</p>
-                        
-                        <div class="space-y-3 mb-8">
-                            <div class="flex justify-between items-center p-3 bg-white rounded-lg border border-slate-200">
-                                <span class="text-sm text-slate-600">Estimasi Omset</span>
-                                <span class="font-bold text-slate-900">Rp 300 Jt/Bln</span>
+            <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 relative ring-4 ring-red-50">
+                 <div class="absolute top-0 right-0 z-20">
+                     <div class="bg-gradient-to-bl from-red-600 to-orange-500 text-white font-bold px-8 py-4 rounded-bl-3xl shadow-lg flex items-center gap-2 text-lg">
+                        <i class="fa-solid fa-star text-yellow-300"></i> BEST DEAL
+                     </div>
+                </div>
+
+                <div class="p-8 md:p-14 grid md:grid-cols-2 gap-12 items-start">
+                    <!-- Pricing -->
+                    <div>
+                         <div class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-bold mb-6">
+                            <i class="fa-solid fa-chart-line"></i> ROI Cepat & Terukur
+                        </div>
+                        <div class="flex items-start gap-2 mb-2">
+                             <span class="text-2xl font-bold text-slate-400 mt-4">Rp</span>
+                             <h3 class="text-8xl font-extrabold text-slate-900 tracking-tight leading-none">750<span class="text-4xl text-slate-500">Jt</span></h3>
+                        </div>
+                        <p class="text-slate-500 text-lg mb-8 font-medium">Investasi Awal (Full Furnished & Equipment)</p>
+
+                        <!-- Calculation Card -->
+                        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 space-y-5">
+                            <h4 class="font-bold text-slate-800 text-lg border-b border-slate-300 pb-3">Estimasi Kinerja Bulanan</h4>
+                            <div class="flex justify-between text-base text-slate-600">
+                                <span>Omset Penjualan</span>
+                                <span class="font-bold text-slate-900">Rp 300.000.000</span>
                             </div>
-                            <div class="flex justify-between items-center p-3 bg-green-50 rounded-lg border border-green-200">
-                                <span class="text-sm text-green-700">Nett Profit (22%)</span>
-                                <span class="font-bold text-green-700">Rp 66 Jt/Bln</span>
+                             <div class="flex justify-between text-base text-slate-600">
+                                <span>Total Pengeluaran (78%)</span>
+                                <span class="font-bold text-slate-900">Rp 234.000.000</span>
+                            </div>
+                            <div class="flex justify-between text-lg text-green-700 bg-green-100 p-3 rounded-xl border border-green-200">
+                                <span class="font-bold">Nett Profit (22%)</span>
+                                <span class="font-bold">Rp 66.000.000</span>
+                            </div>
+                             <div class="flex justify-between text-sm text-slate-500 pt-2">
+                                <span>Investor Share (40%)</span>
+                                <span class="font-bold text-slate-700">Rp 26.400.000 / Bulan</span>
                             </div>
                         </div>
-                        
-                        <a href="https://wa.me/6282110178222?text=Saya%20berminat%20Franchise%20750jt" class="w-full block py-4 bg-red-700 text-white font-bold rounded-xl text-center hover:bg-red-800 transition-all">Ambil Peluang Ini</a>
+
+                         <a href="https://wa.me/6282110178222?text=Halo%20Admin,%20saya%20siap%20investasi%20750Juta" class="mt-8 block w-full py-5 bg-gradient-to-r from-red-600 to-orange-600 text-white text-center rounded-2xl font-bold text-xl hover:from-red-700 hover:to-orange-700 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                            Ambil Peluang Sekarang
+                        </a>
                     </div>
-                    
-                    <div class="p-8 md:p-12">
-                        <h4 class="font-bold text-lg mb-6 flex items-center gap-2"><i class="fa-solid fa-list-check text-red-600"></i> Fasilitas Termasuk:</h4>
-                        <ul class="space-y-4 text-sm text-slate-700">
-                            <li class="flex gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Hak Guna Brand <strong>6 Tahun</strong></li>
-                            <li class="flex gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Renovasi Interior & Kitchen (120 m²)</li>
-                            <li class="flex gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Full Equipment (Kitchen, Meja, Kursi, AC)</li>
-                            <li class="flex gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Sistem Kasir (POS) + Tablet</li>
-                            <li class="flex gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Rekrutmen & Training Karyawan</li>
-                            <li class="flex gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Bahan Baku Awal Opening</li>
-                            <li class="flex gap-3"><i class="fa-solid fa-check text-green-500 mt-1"></i> Support Grand Opening</li>
+
+                    <!-- Facilities -->
+                    <div class="h-full flex flex-col justify-center">
+                        <h4 class="font-extrabold text-slate-900 mb-8 text-2xl flex items-center gap-3">
+                            <span class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600"><i class="fa-solid fa-list-check"></i></span>
+                            Fasilitas yang Anda Dapat:
+                        </h4>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4 text-lg text-slate-700 font-medium group">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+                                <span>Hak Penggunaan Brand (Lisensi) selama <strong>6 Tahun</strong></span>
+                            </li>
+                            <li class="flex items-start gap-4 text-lg text-slate-700 font-medium group">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+                                <span>Renovasi Interior & Kitchen Equipment (120 m²)</span>
+                            </li>
+                            <li class="flex items-start gap-4 text-lg text-slate-700 font-medium group">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+                                <span>Peralatan Makan & Penyajian Lengkap</span>
+                            </li>
+                             <li class="flex items-start gap-4 text-lg text-slate-700 font-medium group">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+                                <span>Sistem Kasir (POS), Tablet & Printer</span>
+                            </li>
+                             <li class="flex items-start gap-4 text-lg text-slate-700 font-medium group">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+                                <span>Rekrutmen & Training Full SDM</span>
+                            </li>
+                             <li class="flex items-start gap-4 text-lg text-slate-700 font-medium group">
+                                <i class="fa-solid fa-circle-check text-green-500 mt-1 text-xl group-hover:scale-125 transition-transform"></i>
+                                <span>Bahan Baku Awal & Grand Opening Support</span>
+                            </li>
                         </ul>
+                        <div class="mt-10 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-xl">
+                            <p class="text-yellow-800 text-sm font-semibold">"Kami siapkan semuanya, Anda tinggal pantau profit bulanan."</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERI KEGIATAN -->
-    <section id="gallery" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <h3 class="text-3xl font-extrabold text-center text-slate-900 mb-10">Galeri Aktivitas</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[200px]">
-                <div class="col-span-2 row-span-2 rounded-xl overflow-hidden"><img src="https://placehold.co/800x800/800000/FFF?text=Dine+In+Ramai" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
-                <div class="col-span-1 row-span-2 rounded-xl overflow-hidden"><img src="https://placehold.co/400x800/b91c1c/FFF?text=Ojol+Antri" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
-                <div class="rounded-xl overflow-hidden"><img src="https://placehold.co/400x400/eab308/333?text=Nasi+Box" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
-                <div class="rounded-xl overflow-hidden"><img src="https://placehold.co/400x400/333/FFF?text=Kitchen" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
-                <div class="col-span-2 rounded-xl overflow-hidden"><img src="https://placehold.co/800x400/555/FFF?text=Tim+Solid" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
-                <div class="col-span-2 rounded-xl overflow-hidden"><img src="https://placehold.co/800x400/777/FFF?text=Kunjungan" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"></div>
+    <!-- SYARAT FRANCHISE (RESTUCTURED) -->
+    <section id="syarat" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">Kriteria Mitra</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900">Syarat Menjadi Franchisee ABR</h3>
+                <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Kami mencari mitra yang memiliki visi yang sama untuk tumbuh dan sukses bersama.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-red-200 transition-all">
+                    <h4 class="text-2xl font-heading font-bold mb-6 flex items-center gap-3 text-slate-900">
+                        <span class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center text-red-600"><i class="fa-solid fa-building-circle-check"></i></span>
+                        Persyaratan Lokasi & Bangunan
+                    </h4>
+                    <ul class="space-y-4 text-slate-700 font-medium">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-red-500 mt-1 shrink-0"></i><span>Lokasi strategis (dekat area perkantoran, kampus, atau pemukiman padat).</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-red-500 mt-1 shrink-0"></i><span>Luas bangunan minimal <strong>120 m²</strong> (lebar muka minimal 8 meter).</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-red-500 mt-1 shrink-0"></i><span>Memiliki area parkir yang memadai.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-red-500 mt-1 shrink-0"></i><span>Status bangunan milik sendiri atau sewa minimal 5 tahun.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-red-500 mt-1 shrink-0"></i><span>Memiliki IMB (Izin Mendirikan Bangunan) yang sesuai peruntukan.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-red-200 transition-all">
+                    <h4 class="text-2xl font-heading font-bold mb-6 flex items-center gap-3 text-slate-900">
+                        <span class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600"><i class="fa-solid fa-handshake-angle"></i></span>
+                        Persyaratan Mitra
+                    </h4>
+                    <ul class="space-y-4 text-slate-700 font-medium">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-yellow-500 mt-1 shrink-0"></i><span>Memiliki modal investasi yang cukup.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-yellow-500 mt-1 shrink-0"></i><span>Memiliki komitmen tinggi untuk menjalankan bisnis sesuai SOP.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-yellow-500 mt-1 shrink-0"></i><span>Bersedia mengikuti seluruh program pelatihan dari pusat.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-yellow-500 mt-1 shrink-0"></i><span>Memahami risiko bisnis kuliner.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-yellow-500 mt-1 shrink-0"></i><span>Memiliki integritas dan semangat kewirausahaan yang baik.</span></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER (Business Class Style) -->
-    <footer class="bg-[#1a1a1a] text-gray-300 pt-16 pb-8 border-t-4 border-yellow-500">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
-                <!-- Brand Info -->
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-red-700 rounded flex items-center justify-center text-white font-bold">ABR</div>
-                        <span class="font-heading font-bold text-white text-xl tracking-wide">AYAM BAKAR RAJAWALI</span>
-                    </div>
-                    <p class="text-sm leading-relaxed mb-6 text-gray-400">
-                        Restoran keluarga legendaris Palembang sejak 1985. Menyajikan cita rasa autentik dengan konsep bisnis yang berkah dan profesional.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
-                </div>
-
-                <!-- Kontak -->
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-6 border-l-4 border-red-600 pl-3">Hubungi Kami</h4>
-                    <ul class="space-y-4 text-sm">
-                        <li class="flex gap-3">
-                            <i class="fa-solid fa-location-dot text-red-500 mt-1"></i>
-                            <span>Marketing Office:<br>Jl. Gubernur H. A Bastari, Jakabaring (Area SPBU OPI), Palembang.</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <i class="fa-solid fa-phone text-red-500 mt-1"></i>
-                            <span>0821-1017-8222 (WhatsApp)</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <i class="fa-solid fa-envelope text-red-500 mt-1"></i>
-                            <span>franchise.marketingabr@gmail.com</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Navigasi -->
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-6 border-l-4 border-yellow-500 pl-3">Tautan Cepat</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#profil" class="hover:text-yellow-500 transition-colors">Profil Perusahaan</a></li>
-                        <li><a href="#keunggulan" class="hover:text-yellow-500 transition-colors">Keunggulan Bisnis</a></li>
-                        <li><a href="#investasi" class="hover:text-yellow-500 transition-colors">Paket Investasi</a></li>
-                        <li><a href="#klien" class="hover:text-yellow-500 transition-colors">Klien & Partner</a></li>
-                    </ul>
-                </div>
+    <!-- TAHAPAN INVESTASI (RESTUCTURED) -->
+    <section id="tahapan" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-red-600 font-bold uppercase tracking-widest text-sm mb-3">Alur Kerjasama</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900">Tahapan Investasi Franchise</h3>
+                <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Proses mudah dan transparan menuju kepemilikan outlet Anda.</p>
             </div>
 
-            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
-                <p>&copy; 2025 PT. Ayam Bakar Rajawali. All Rights Reserved.</p>
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-16 left-0 w-full h-1 bg-slate-200 -z-10"></div>
+
+                <!-- Step 1 -->
+                <div class="text-center group relative bg-white p-6 rounded-3xl shadow-sm">
+                    <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-red-600 border-4 border-white shadow-lg group-hover:scale-110 transition-transform relative z-10">1</div>
+                    <h4 class="text-xl font-bold mb-3">Presentasi & Survey</h4>
+                    <p class="text-slate-600 text-sm px-4">Penjelasan detail bisnis, pengisian formulir, dan survey lokasi calon outlet.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center group relative bg-white p-6 rounded-3xl shadow-sm">
+                    <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-red-600 border-4 border-white shadow-lg group-hover:scale-110 transition-transform relative z-10">2</div>
+                    <h4 class="text-xl font-bold mb-3">MoU & DP</h4>
+                    <p class="text-slate-600 text-sm px-4">Penandatanganan kesepakatan awal (MoU) dan pembayaran Commitment Fee.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center group relative bg-white p-6 rounded-3xl shadow-sm">
+                    <div class="w-24 h-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-red-600 border-4 border-white shadow-lg group-hover:scale-110 transition-transform relative z-10">3</div>
+                    <h4 class="text-xl font-bold mb-3">Renovasi & Training</h4>
+                    <p class="text-slate-600 text-sm px-4">Proses renovasi outlet, pengadaan peralatan, serta pelatihan SDM secara intensif.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="text-center group relative bg-white p-6 rounded-3xl shadow-sm">
+                    <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-green-600 border-4 border-white shadow-lg group-hover:scale-110 transition-transform relative z-10 animate-pulse-glow">4</div>
+                    <h4 class="text-xl font-bold mb-3 text-green-600">Grand Opening</h4>
+                    <p class="text-slate-600 text-sm px-4">Pelunasan investasi, soft opening, dan peresmian outlet siap beroperasi penuh.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white pt-20 pb-10 border-t-8 border-red-600 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
+            <div class="flex items-center justify-center gap-3 mb-8">
+                 <div class="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center text-white text-2xl font-heading font-bold border-2 border-yellow-400 shadow-lg shadow-red-900/50">
+                        ABR
+                    </div>
+                <span class="font-heading font-bold text-4xl tracking-wide">AYAM BAKAR <span class="text-red-500">RAJAWALI</span></span>
+            </div>
+            
+            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                Siap mencetak profit bersama kami? Jangan tunda kesuksesan Anda.
+                Hubungi kami sekarang untuk konsultasi lokasi dan survey gratis.
+            </p>
+
+             <a href="https://wa.me/6282110178222" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-xl transition-all shadow-lg hover:shadow-green-500/30 mb-12">
+                <i class="fa-brands fa-whatsapp text-3xl"></i> Chat WhatsApp Marketing
+            </a>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+                <p>&copy; 2025 Ayam Bakar Rajawali. Hak Cipta Dilindungi.</p>
+                <p>Marketing Office: Area SPBU OPI Jakabaring, Palembang.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WA Button (Mobile Sticky) -->
-    <a href="https://wa.me/6282110178222?text=Halo%20Admin%20ABR,%20saya%20tertarik%20Franchise" class="fixed bottom-6 right-6 z-[9999] group bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-all hover:scale-110 animate-bounce-slow flex items-center justify-center w-16 h-16">
-        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    <!-- Floating Action Button (WA) -->
+    <a class="fixed bottom-6 right-6 z-[9999] group" href="https://wa.me/6282110178222?text=Halo%2C%20saya%20tertarik%20Franchise%20ABR" target="_blank">
+        <div class="relative">
+            <span class="absolute right-16 top-1/2 -translate-y-1/2 bg-white text-slate-800 text-sm font-bold px-4 py-2 rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap hidden md:block border border-red-100 translate-x-4 group-hover:translate-x-0">
+                Chat Tim Marketing
+                <div class="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-white rotate-45 border-t border-r border-red-100"></div>
+            </span>
+            <div class="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-[32px] shadow-2xl shadow-green-800/30 hover:shadow-green-600/50 hover:-translate-y-2 transition-all duration-300 ring-4 ring-white/50 animate-pulse-glow">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
     </a>
 
 </body>
