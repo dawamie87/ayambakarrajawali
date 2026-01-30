@@ -98,7 +98,7 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (UPDATED FOR MOBILE) -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-orange-50/80 to-white -z-20"></div>
         <div class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-red-200/40 rounded-full blur-[100px] -z-10 animate-float"></div>
@@ -107,8 +107,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                 
-                <!-- Text Content -->
-                <div class="text-center lg:text-left space-y-8 order-2 lg:order-1 relative z-10">
+                <!-- Text Content (Order 1 on Desktop, Order 1 on Mobile - KEEPING TOP) -->
+                <div class="text-center lg:text-left space-y-6 order-1 relative z-10">
                     <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-700 text-sm font-bold uppercase tracking-wider border border-red-100 shadow-sm animate-bounce-slow">
                         <i class="fa-solid fa-crown text-yellow-500"></i> The Legend of Palembang Culinary
                     </div>
@@ -122,8 +122,15 @@
                         Investasi anti-gagal di bisnis kuliner yang telah teruji zaman. 
                         Bergabunglah dengan <span class="text-red-600 font-bold">Jagonya Ayam Bakar Dadakan</span> dan rasakan profit bisnis yang berkah & berkelanjutan.
                     </p>
+
+                    <!-- Trust Badges (Moved here for mobile logic) -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3 text-sm text-slate-500 font-bold pb-4 lg:pb-0">
+                        <span class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100"><i class="fa-solid fa-shield-halved text-green-500"></i> Bisnis Teruji</span>
+                        <span class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100"><i class="fa-solid fa-users text-blue-500"></i> Ribuan Pelanggan</span>
+                    </div>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
                         <a href="#investasi" class="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-2xl font-bold text-lg hover:from-red-700 hover:to-orange-700 transition-all shadow-xl shadow-red-500/30 hover:shadow-red-500/50 animate-pulse-glow flex items-center justify-center gap-2">
                             <i class="fa-solid fa-money-bill-trend-up"></i> Lihat Potensi Cuan
                         </a>
@@ -131,15 +138,10 @@
                             <i class="fa-solid fa-book-open text-red-500 group-hover:scale-110 transition-transform"></i> Pelajari Kisah Kami
                         </a>
                     </div>
-                    
-                    <div class="pt-4 flex flex-wrap justify-center lg:justify-start gap-3 text-sm text-slate-500 font-bold">
-                        <span class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100"><i class="fa-solid fa-shield-halved text-green-500"></i> Bisnis Teruji</span>
-                        <span class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100"><i class="fa-solid fa-users text-blue-500"></i> Ribuan Pelanggan</span>
-                    </div>
                 </div>
 
-                <!-- Visual Content -->
-                <div class="relative mx-auto lg:mr-0 w-full max-w-[500px] order-1 lg:order-2">
+                <!-- Visual Content (Order 2 - Placed AFTER Text on Mobile) -->
+                <div class="relative mx-auto lg:mr-0 w-full max-w-[500px] order-2">
                     <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl shadow-red-900/20 border-8 border-white animate-float group">
                         <img src="https://placehold.co/600x700/800000/FFF?text=Ayam+Bakar+Rajawali+Signature" alt="Ayam Bakar Rajawali" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
@@ -148,7 +150,7 @@
                         </div>
                     </div>
                     <!-- Badge -->
-                    <div class="absolute -top-6 -left-6 bg-red-600 text-white p-6 rounded-3xl shadow-xl shadow-red-600/30 animate-bounce-slow z-20 border-4 border-white">
+                    <div class="absolute -top-6 -left-6 bg-red-600 text-white p-6 rounded-3xl shadow-xl shadow-red-600/30 animate-bounce-slow z-20 border-4 border-white hidden md:block">
                         <p class="text-4xl font-heading font-bold text-center leading-none">35+</p>
                         <p class="text-xs font-bold uppercase tracking-wider text-center mt-1">Tahun<br>Melayani</p>
                     </div>
@@ -421,7 +423,7 @@
         </div>
     </section>
 
-    <!-- TESTIMONIAL & CLIENTS (RESTUCTURED) -->
+    <!-- TESTIMONIAL & CLIENTS (RESTUCTURED & LOGO FIXED) -->
     <section id="klien" class="py-24 bg-white relative border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4">
              <div class="text-center mb-16">
@@ -476,44 +478,44 @@
                 </div>
             </div>
 
-            <!-- Client Logos Grid (UPDATED) -->
+            <!-- Client Logos Grid (UPDATED & IMPROVED) -->
             <div class="text-center mb-12">
                 <h3 class="text-2xl font-extrabold text-slate-900 mb-4 uppercase tracking-wide">Dipercaya Instansi Pemerintah & Swasta</h3>
                 <p class="text-slate-600">Kebanggaan kami dapat melayani berbagai Instansi Pemerintah, BUMN, Perbankan, Rumah Sakit, dan Perusahaan Swasta.</p>
             </div>
-            <!-- Using Placeholders for Logos as requested, arranged in a grid -->
-            <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-8 items-center justify-items-center grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100">
+            <!-- Improved Grid: Tighter spacing, better sizing, hover effects -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-8 items-center justify-items-center opacity-80">
                  <!-- Row 1 -->
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Bank+BRI" alt="BRI" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Bank+Mandiri" alt="Mandiri" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Bank+BCA" alt="BCA" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Bank+BNI" alt="BNI" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Bank+Sumsel" alt="Bank Sumsel Babel" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Bank+BTN" alt="BTN" class="h-16 w-auto object-contain">
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BRI" alt="BRI" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Mandiri" alt="Mandiri" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BCA" alt="BCA" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BNI" alt="BNI" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Bank+Sumsel" alt="Bank Sumsel" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BTN" alt="BTN" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
                  
                  <!-- Row 2 -->
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Pertamina" alt="Pertamina" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=PLN" alt="PLN" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Pusri" alt="Pusri" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Telkomsel" alt="Telkomsel" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Grab" alt="Grab" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Shopee" alt="Shopee" class="h-16 w-auto object-contain">
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Pertamina" alt="Pertamina" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=PLN" alt="PLN" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Pusri" alt="Pusri" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Telkomsel" alt="Telkomsel" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Grab" alt="Grab" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Shopee" alt="Shopee" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
 
                  <!-- Row 3 -->
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=RS+Siloam" alt="RS Siloam" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=RS+Charitas" alt="RS Charitas" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=RS+Hermina" alt="RS Hermina" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=RSUP+Hoesin" alt="RSUP M Hoesin" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=RS+Bunda" alt="RS Bunda" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=BPJS" alt="BPJS" class="h-16 w-auto object-contain">
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Siloam" alt="RS Siloam" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Charitas" alt="RS Charitas" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Hermina" alt="RS Hermina" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RSUP+Hoesin" alt="RSUP Hoesin" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=RS+Bunda" alt="RS Bunda" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=BPJS" alt="BPJS" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
 
                  <!-- Row 4 -->
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Aston+Hotel" alt="Aston" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Favehotel" alt="Favehotel" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Auto2000" alt="Auto2000" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=JNE" alt="JNE" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=JSC" alt="JSC" class="h-16 w-auto object-contain">
-                 <img src="https://placehold.co/150x80/e2e8f0/64748b?text=Kemenkeu" alt="Kemenkeu" class="h-16 w-auto object-contain">
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Aston" alt="Aston" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Favehotel" alt="Favehotel" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Auto2000" alt="Auto2000" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=JNE" alt="JNE" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=JSC" alt="JSC" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
+                 <div class="w-full flex justify-center group"><img src="https://placehold.co/120x60/e2e8f0/64748b?text=Kemenkeu" alt="Kemenkeu" class="h-12 md:h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"></div>
             </div>
         </div>
     </section>
